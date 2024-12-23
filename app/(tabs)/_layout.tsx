@@ -27,17 +27,17 @@ export default function TabLayout() {
         }),
       }}>
       <Tabs.Screen
-        name="index"
+        name='taskList'
         options={{
-          title: 'Home',
+          title: 'Task List',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name='addTask'
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Add Task',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="plus.circle" color={color} />,
         }}
       />
     </Tabs>
