@@ -17,7 +17,7 @@ export default function AddTask() {
       return;
     }
     await saveTask({ title, description, date, location });
-    router.push("/taskList");
+    router.push("/");
   };
 
   return (
