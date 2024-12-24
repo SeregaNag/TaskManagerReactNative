@@ -1,9 +1,9 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { loadTasks } from "@/utils/utils";
 import { Task } from "@/types/types";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList } from "react-native";
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -13,15 +13,19 @@ export default function TaskList() {
     loadTasks().then(setTasks)
   }, [tasks]);
 
+  const handleTaskPress = (id: string) => {
+    router.push(`/editTask?id=${id}`);
+  }
+
   const renderTasks = ({ item }: { item: Task }) => {
     return(
-    <View style={styles.task}>
+    <TouchableOpacity style={styles.task} onPress={() => handleTaskPress(item.id)}>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.subtitle}>{item.location}</Text>
       <Text>{item.description}</Text>
       <Text>{item.date}</Text>
       <Text>{item.status}</Text>
-    </View>
+    </TouchableOpacity>
     )
   }
 

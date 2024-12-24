@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Task } from "../types/types";
+import 'react-native-get-random-values';
 import { v4 as uuidv4 } from "uuid";
 
 export const saveTask = async (taskData: Omit<Task, 'id' | 'status'>): Promise<void> => {
